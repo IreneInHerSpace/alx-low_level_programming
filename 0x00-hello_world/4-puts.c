@@ -1,5 +1,5 @@
 #include <stdio.h>
-/* The program is executed in the main function
+/** The program is executed in the main function
  *
  *the array test_string stores "Programming is like building a multilingual puzzle" to be passed to the puts function for printing
  *
