@@ -1,7 +1,7 @@
 #include <stdio.h>
 /**
- * main function is the entry point
- * Return 0
+ * main: Entry point
+ * Return: 0
  */
 int main(void)
 {
@@ -15,5 +15,5 @@ printf("Size of an int: %lu byte(s)\n", (unsigned long)sizeof(b));
 printf("Size of a long int: %lu byte(s)\n", (unsigned long)sizeof(lb));
 printf("Size of a long long int: %lu byte(s)\n", (unsigned long)sizeof(llb));
 printf("Size of a float: %lu byte(s)\n", (unsigned long)sizeof(f));
- return (0);
+return (0);
 }
