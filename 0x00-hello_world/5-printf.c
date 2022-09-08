@@ -1,13 +1,14 @@
 #include <stdio.h>
 
 
+
 /**
 
- * main function is where the code starts executing
+ * main - Entry point
 
  *
 
- * Returns 0 
+ * Return 0 
 
  */
 
