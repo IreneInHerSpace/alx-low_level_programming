@@ -1,11 +1,9 @@
 #include <stdio.h>
 
 
-
 /**
 
  * main function is where the code starts executing
-
 
  *
 
