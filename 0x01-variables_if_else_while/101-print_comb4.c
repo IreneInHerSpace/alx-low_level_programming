@@ -14,7 +14,7 @@
 *(printf, puts, etc…) is forbidden)
 *You can only use putchar six times maximum in your code
 *you are not allowed to use any variable of type char
-*Return : 0
+* Return: Always 0.
 */
 int main(void)
 {
