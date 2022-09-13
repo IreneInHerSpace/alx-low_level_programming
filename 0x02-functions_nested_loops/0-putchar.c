@@ -1,9 +1,10 @@
 #include "main.h"
+
 /**
 *main - main block
 *Return: 0
 */
-int main ()
+int main (void)
 {
   _puthar('_');
   _putchar('p');
