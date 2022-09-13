@@ -1,14 +1,19 @@
-#include <studio.h>
+#include "main.h"
 /**
 *main - main block
 *Return: 0
 */
 int main ()
 {
-  char ch;
-  for (ch='A', ch<='Z', ch++)
-    {
-      puthar(ch);
-    }
+  _puthar('_');
+  _putchar('p');
+  _putchar('u');
+  _putchar('t');
+  _putchar('c');
+  _putchar('h');
+  _putchar('a');
+  _putchar('r');
+  _putchar('\n');
+  
   return 0;
 }
