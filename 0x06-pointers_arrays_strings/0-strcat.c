@@ -1,22 +1,24 @@
 #include "main.h"
-#include <string.h>
 /**
-* *_strcat - function commute srtings
-* @dest: string to append to
-* @src: string to add
-* Return: return value of dest
+*_strcat - concatenates two strings
+*@dest: string to append to
+*@src: string to add
+*Return: a pointer to the resulting string dest
 */
 char *_strcat(char *dest, char *src)
 {
-int i = 0;
-int j;
-while (dest[i])
+int i, j;
+i = 0;
+while (dest[i] != 0)
+{
 i++;
-for (j = 0; src[j] != 0; j++)
+}
+j = 0;
+while (src[j] != 0)
 {
 dest[i] = src[j];
-j = j + 1;
+i++;
+j++;
 }
-dest[i] = '\0';
 return (dest);
 }
