@@ -42,8 +42,8 @@ return (count);
  */
 int main(int argc, char *argv[])
 {
-int i, coin;
-coin = 0;
+int i;
+int coin = 0;
 if (argc != 2)
 {
 printf("Error\n");
