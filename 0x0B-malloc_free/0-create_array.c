@@ -1,4 +1,5 @@
 #include "main.h"
+#include <stdio.h>
 #include <stdlib.h>
 /**
  *create_array - creates and array of chars
@@ -20,5 +21,5 @@ pointer[i] = c;
 if (!pointer)
 return (NULL);
 else
-return (ptr);
+return (pointer);
 }
