@@ -19,7 +19,7 @@ while (str[len])
 len++;
 }
 cpy = malloc(sizeof(char) * (len + 1));
-if (cpy== NULL)
+if (cpy == NULL)
 {
 return (NULL);
 }
