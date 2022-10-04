@@ -1,3 +1,4 @@
+#include <stdlib.h>
 #include "main.h"
 /**
 *create_array - creates an array of chars, and
@@ -15,14 +16,16 @@ if (size == 0)
 {
 return (NULL);
 }
-array = malloc(sizeof(char) * size);
+array = (char *) malloc(sizeof(char) * size);
 if (array == NULL)
 {
-return (NULL);
+return (0);
 }
-for (index = 0; index < size; index++)
+while (i < size)
 {
-array[index] = c;
+*(array + i) = c;
+i++;
 }
+*(arry + i) = '\0';
 return (array);
 }
