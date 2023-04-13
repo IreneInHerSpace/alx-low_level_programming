@@ -1,74 +1,92 @@
 #include "search_algos.h"
 
 /**
- * exponential_search - Searches for a value in a sorted array of integers
+ * exponential_search - searches for a value in a sorted array of integers
  *                      using the Exponential search algorithm
+ * @array: a pointer to the first element of the array to search in
+ * @size: the number of elements in array
+ * @value: the value to search for
  *
- * @array: Pointer to the first element of the array to search in
- * @size: Number of elements in array
- * @value: Value to search for
- *
- * Return: The first index where value is located or -1 if value is not present
- *         in array or if array is NULL
+ * Return: the first index where value is located or -1 if not found
  */
 int exponential_search(int *array, size_t size, int value)
 {
-    int bound = 1;
+    size_t i = 1;
 
-    if (array == NULL)
+    if (!array)
         return (-1);
 
-    while (bound < (int)size && array[bound] < value)
+    /* Find the range to search in */
+    while (i < size && array[i] < value)
     {
-        printf("Value checked array[%d] = [%d]\n", bound, array[bound]);
-        bound *= 2;
+        printf("Value checked array[%lu] = [%d]\n", i, array[i]);
+        i *= 2;
     }
 
-    printf("Value found between indexes [%d] and [%d]\n", bound / 2, bound >= (int)size ? (int)size - 1 : bound);
-
-    return (binary_search(array, bound / 2, bound >= (int)size ? (int)size - 1 : bound, value));
+    /* Binary search in the range found */
+    return (binary_search(array, i / 2, min(i, size - 1), value));
 }
 
 /**
- * binary_search - Searches for a value in a sorted array of integers using
- *                 the Binary search algorithm
+ * binary_search - searches for a value in a sorted array of integers
+ *                 using the Binary search algorithm
+ * @array: a pointer to the first element of the array to search in
+ * @left: the left index of the range to search in
+ * @right: the right index of the range to search in
+ * @value: the value to search for
  *
- * @array: Pointer to the first element of the array to search in
- * @start: Index of the first element of the subarray to search in
- * @end: Index of the last element of the subarray to search in
- * @value: Value to search for
- *
- * Return: The index where value is located or -1 if value is not present
- *         in array or if array is NULL
+ * Return: the index where value is located or -1 if not found
  */
-int binary_search(int *array, size_t start, size_t end, int value)
+int binary_search(int *array, size_t left, size_t right, int value)
 {
-    int mid;
+    size_t mid;
 
-    if (array == NULL)
-        return (-1);
-
-    while (start <= end)
+    while (left <= right)
     {
-        mid = (start + end) / 2;
-
-        printf("Searching in array:");
-        while (start <= end)
-        {
-            printf(" %d", array[start]);
-            if (start != end)
-                printf(",");
-            start++;
-        }
-        printf("\n");
+        print_array(array, left, right);
+        mid = (left + right) / 2;
 
         if (array[mid] == value)
             return (mid);
-        else if (array[mid] < value)
-            start = mid + 1;
+
+        if (array[mid] < value)
+            left = mid + 1;
         else
-            end = mid - 1;
+            right = mid - 1;
     }
 
     return (-1);
 }
+
+/**
+ * print_array - prints an array of integers
+ * @array: a pointer to the first element of the array to print
+ * @left: the left index of the range to print
+ * @right: the right index of the range to print
+ */
+void print_array(int *array, size_t left, size_t right)
+{
+    size_t i;
+
+    printf("Searching in array: ");
+    for (i = left; i <= right; i++)
+    {
+        printf("%d", array[i]);
+        if (i < right)
+            printf(", ");
+    }
+    printf("\n");
+}
+
+/**
+ * min - returns the minimum of two integers
+ * @a: an integer
+ * @b: an integer
+ *
+ * Return: the minimum of a and b
+ */
+size_t min(size_t a, size_t b)
+{
+    return (a < b ? a : b);
+}
+
